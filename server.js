@@ -9,9 +9,11 @@ app.use(cors());
 app.use(express.json());
 
 // Routes
+const authRoutes = require('./routes/auth');
 const providersRoutes = require('./routes/providers');
-app.use('/api/providers', providersRoutes);
 
+app.use('/api/auth', authRoutes);
+app.use('/api/providers', providersRoutes);
 // Start server
 app.listen(port, () => {
   console.log(`Backend server running on http://localhost:${port}`);
